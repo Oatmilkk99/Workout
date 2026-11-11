@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>WORKOUT</title>
+	 <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+	 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js" integrity="sha512-sW/w8s4RWTdFFSduOTGtk4isV1+190E/GghVffMA9XczdJ2MDzSzLEubKAs5h0wzgSJOQTRYyaz73L3d6RtJSg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js" integrity="sha512-BwHfrr4c9kmRkLw6iXFdzcdWV/PGkVgiIyIWLLlTSXzWQzxuSg4DiQUCpauz/EWjgk5TYQqX/kvn9pG1NpYfqg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body class="flex items-center flex-col bg-[#FEF0F4]">
+	<h1 class="text-5xl font-bold">WORKOUT</h1>
+	<p class="font-semibold text-gray-400">Run, and we'll tell you how you did</p>
+
+	<div class="bg-white p-6 size-64 w-md flex items-center flex-col rounded-lg m-5">
+		<section id="map" class="w-[400px] max-w-[400px] h-[400px] max-h-[400px]"></section>
+	</div>
+
+	<div class="bg-white p-6 size-54 w-md flex items-center flex-col rounded-lg">
+		<h1 id ="timer" class="text-4xl font-semibold">00:00</h1>
+		<p class="text-gray-400 italic m-3">Start timer to begin running</p>
+
+		<div class="m-5">
+		<button id="starting..." class="bg-[#E30B5D] p-2 rounded-lg">Start run</button>
+		<button id="ending..." class="bg-[#E30B5D] p-2 rounded-lg">End Run</button>
+	</div>
+
+	</div>
+
+	<div class="bg-white p-6 size-64 w-md flex items-center flex-col rounded-lg m-10">
+		<h1 class="text-4xl font-semibold">100%</h1>
+		<h3 class="text-gray-400 italic m-3">Excellent run</h3>
+		<p class="text-gray-400 italic m-3">Your run was very good, keep up the good work</p>
+
+		<div class="flex">
+		<section class="bg-[#F9D2DF] p-2 rounded-lg m-2 w-[90px] h-[80px]">
+			<h1 class="font-bold text-center">00</h1>
+			<p class="text-xs text-center text-[#895870]">km</p>
+		</section>
+		<section class="bg-[#F9D2DF] p-2 rounded-lg m-2  w-[90px] h-[80px]">
+			<h1 class="font-bold text-center">00</h1>
+			<p class="text-xs text-center text-[#895870]">unit in min/km</p>
+		</section>
+		<section class="bg-[#F9D2DF] p-2 rounded-lg m-2  w-[90px] h-[80px]">
+			<h1 class="font-bold text-center">00</h1>
+			<p class="text-xs text-center text-[#895870]">unit in steps</p>
+		</section>
+		<section class="bg-[#F9D2DF] p-2 rounded-lg m-2  w-[90px] h-[80px]">
+			<h1 class="font-bold text-center">00</h1>
+			<p class="text-xs text-center text-[#895870]">unit in calories burnt</p>
+		</section>
+	</div>
+
+	</div>
+
+	<div class="bg-white p-6 size-64 w-md flex items-center flex-col rounded-lg m-5">
+		<h3>Last three runs</h3>
+		<section class="w-[400px]">
+			<canvas id="drawingg"></canvas>
+		</section>
+	</div>
+
+	<div class="bg-white p-6 size-74 w-md flex items-center flex-col rounded-lg m-10">
+		<h1 class="font-bold text-2xl">LEADERBOARD</h1>
+
+		<div class="flex p-2">
+		<h2 class="mr-20 ">Name</h2>
+		<h2>Distance</h2>
+	</div>
+
+	<div class="flex p-2">
+		<h3 class="mr-20 ">Name</h3>
+		<h3>Distance</h3>
+	</div>
+
+		<div class="flex p-2">
+		<h4 class="mr-20 ">Name</h4>
+		<h4>Distance</h4>
+	</div>
+
+		<div class="flex p-2">
+		<h5 class="mr-20 ">Name</h5>
+		<h5>Distance</h5>
+	</div>
+
+	<div class="flex p-2">
+		<h6 class="mr-20 ">Name</h6>
+		<h6>Distance</h6>
+	</div>
+
+	<div class="flex p-2">
+		<h6 class="mr-20 ">Name</h6>
+		<h6>Distance</h6>
+	</div>
+
+
+	</div>
+
+<script src="workout.js"></script>
+<script src="chart.js"></script>
+<script src="map.js"></script>
+
+</body>
+
+</html>
+
