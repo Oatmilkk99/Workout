@@ -1,5 +1,5 @@
-let starting = document.getElementById("starting...")
-let ending = document.getElementById("ending...")
+let starting = document.getElementById("Starting...")
+let ending = document.getElementById("Ending...")
 let starttime = 0
 let endtime = 0
 let timer = document.getElementById("timer")

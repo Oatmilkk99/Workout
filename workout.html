@@ -6,6 +6,7 @@
 	 <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 	 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js" integrity="sha512-sW/w8s4RWTdFFSduOTGtk4isV1+190E/GghVffMA9XczdJ2MDzSzLEubKAs5h0wzgSJOQTRYyaz73L3d6RtJSg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js" integrity="sha512-BwHfrr4c9kmRkLw6iXFdzcdWV/PGkVgiIyIWLLlTSXzWQzxuSg4DiQUCpauz/EWjgk5TYQqX/kvn9pG1NpYfqg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css" integrity="sha512-Zcn6bjR/8RZbLEpLIeOwNtzREBAJnUKESxces60Mpoj+2okopSAcSUIUOseddDm0cxnGQzxIR7vJgsLZbdLE3w==" crossorigin="anonymous" referrerpolicy="no-referrer">
 </head>
 
 <body class="flex items-center flex-col bg-[#FEF0F4]">
@@ -13,6 +14,11 @@
 	<p class="font-semibold text-gray-400">Run, and we'll tell you how you did</p>
 
 	<div class="bg-white p-6 size-64 w-md flex items-center flex-col rounded-lg m-5">
+		<section>
+			<input id="start_loc" class="p-2" placeholder="Starting..."></input>
+			<input id="end_loc" class="p-2" placeholder="Ending..."></input>
+			<button id="confirmed" class="bg-[#E30B5D] p-2 rounded-lg">Confirm</button>
+		</section>
 		<section id="map" class="w-[400px] max-w-[400px] h-[400px] max-h-[400px]"></section>
 	</div>
 
