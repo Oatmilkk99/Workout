@@ -22,18 +22,24 @@ async function triggerconfirm()
     let latend = itemsend[0]
     let lonend = itemsend[1]
     
-    map.setView([latstart,lonstart],15)
-    L.marker([lat,lon]).addTo(map)
-
-    
-    
-    map.setView([latstart,lonstart],15)
+    map.setView([latstart,lonstart],5)
     L.marker([latstart,lonstart]).addTo(map)
 
     L.marker([latend,lonend]).addTo(map)
 
+    //connecting the routes
+    let link = "https://router.project-osrm.org/route/v1/driving/"+lonstart+","+latstart+";"+lonend+","+latend+"?overview=full&geometries=geojson"
+    let response = await fetch(link)
+    let info =await response.json()
+    let geometry = info["routes"][0]["geometry"]
+    console.log(geometry)
+
+    let connect_lines_route = L.geoJSON(geometry).addTo(map)
+    map.fitBounds(connect_lines_route.getBounds())
+
 
 }
+
 
 async function getlatandlong(location)
 {
