@@ -15,7 +15,50 @@ function triggerendtimer()
 	starting.disabled=false
 	starting.classList.remove("opacity-50")
 	starting.classList.add("opacity-100")
+	TOTALTIME = endtime-starttime
+	//get the history if it's been saved
+	let history = []
+	if(localStorage.getItem("history")!=null)
+	{
+		history = JSON.parse(localStorage.getItem("history"))
+	}
+	//SAVE DISTTANCE & TTIME
+	history.push({"distance":DISTANCE,"totaltime":TOTALTIME})
+	localStorage.setItem("history",JSON.stringify(history))
+	//CHART.destroy()
+	CHART = new Chart(
+    document.getElementById("drawingg"),
+    {
+      type: 'bar',
+      data: {
+        labels: history.map(row => row.distance/1000),
+        datasets: [
+          {
+            label: 'Distance',
+            data: history.map((row) => 
+            	{
+            		let seconds = (row.totaltime/1000)%60
+ 	let minutes = row.totaltime/60000
+ 	let minutes_text = Math.trunc(minutes)
+ 	let seconds_text = Math.trunc(seconds)
+ 	if(minutes_text<10) 
+ 	{
+ 		minutes_text="0"+minutes_text 
+ 	}
+ 	if(seconds_text<10)
+ 	{
+ 		seconds_text="0"+seconds_text
+ 	}
+ 	return minutes_text+":"+seconds_text
+
+            	})
+          }
+        ]
+      }
+    }
+  );
 }
+
 function triggertimerchange()
 {
  	endtime=Date.now()

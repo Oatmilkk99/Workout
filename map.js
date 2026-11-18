@@ -37,7 +37,12 @@ async function triggerconfirm()
     let connect_lines_route = L.geoJSON(geometry).addTo(map)
     map.fitBounds(connect_lines_route.getBounds())
 
+    //distanceee
+    let distance = info["routes"][0]["distance"]
+    console.log(distance)
+    DISTANCE = info["routes"][0]["distance"]  
 
+ 
 }
 
 

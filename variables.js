@@ -1,0 +1,2 @@
+let TOTALTIME = 0
+let DISTANCE = 0
