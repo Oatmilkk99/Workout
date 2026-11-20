@@ -23,9 +23,19 @@ async function triggerconfirm()
     let lonend = itemsend[1]
     
     map.setView([latstart,lonstart],5)
-    L.marker([latstart,lonstart]).addTo(map)
+    //removeing prevoius markers
+    if(MARKERS.length>0)
+    {
+        map.removeLayer(MARKERS[0])
+        map.removeLayer(MARKERS[1])
+    }
+    MARKERS=[]
+    MARKERS.push(L.marker([latstart,lonstart]))
 
-    L.marker([latend,lonend]).addTo(map)
+
+    MARKERS.push(L.marker([latend,lonend]))
+    MARKERS[0].addTo(map)
+    MARKERS[1].addTo(map)
 
     //connecting the routes
     let link = "https://router.project-osrm.org/route/v1/driving/"+lonstart+","+latstart+";"+lonend+","+latend+"?overview=full&geometries=geojson"
@@ -34,14 +44,25 @@ async function triggerconfirm()
     let geometry = info["routes"][0]["geometry"]
     console.log(geometry)
 
-    let connect_lines_route = L.geoJSON(geometry).addTo(map)
-    map.fitBounds(connect_lines_route.getBounds())
+//removeing routessss
+    if(ROUTE!=null)
+    {
+        map.removeLayer(ROUTE)
+    }
+    ROUTE = L.geoJSON(geometry)
+    ROUTE.addTo(map)
+    map.fitBounds(ROUTE.getBounds())
 
     //distanceee
     let distance = info["routes"][0]["distance"]
+    let h1 = document.getElementById("kilooo")
+    h1.innerText = (distance/1000).toFixed(2)
     console.log(distance)
     DISTANCE = info["routes"][0]["distance"]  
 
+    //steppppss
+    let H1 = document.getElementById("stepzz")
+    H1.innerText = Math.floor((distance/1000)*1300)
  
 }
 
